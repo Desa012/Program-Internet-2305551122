@@ -32,6 +32,7 @@
                 <th>ACCESS MODIFIER</th>
                 <th>REQUIRE ATAU INCLUDE</th>
                 <th>spl_autoload_register</th>
+                <th>Menggunakan Composer Autoload</th>
             </tr>
         </thead>
         <tbody>
@@ -210,6 +211,22 @@
 
                     $jagung = new Jagung();
                     echo "<p>" . $jagung->waktupanen() . "</p>";
+                ?>
+                </td>
+
+                <td>
+                <?php
+                    // Sertakan autoload Composer
+                    require 'vendor/autoload.php';
+
+                    use Devices\Laptop;
+                    use Devices\Smartphone;
+
+                    $laptop = new Laptop();
+                    echo $laptop->getDeviceType() . "</p>"; // Output: Laptop
+
+                    $smartphone = new Smartphone();
+                    echo $smartphone->getDeviceType(); // Output: Smartphone
                 ?>
                 </td>
             </tr>
